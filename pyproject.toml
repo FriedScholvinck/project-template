@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "AmstelChat"
+name = "ProjectTemplate"
 version = "0.1.0"
 description = ""
 authors = ["Fried Schölvinck <fried.scholvinck@gmail.com"]
@@ -11,8 +11,7 @@ packages = [{ include = "mypackage", from = "src" }]
 mycli = 'mypackage.main:main'
 
 [tool.poetry.dependencies]
-python = "^3.11"
-polars = "^0.17.5"
+python = "^3.10"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.0"
