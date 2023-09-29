@@ -33,7 +33,7 @@ PROJECT_ID=xomnia-training
 
 .PHONY: deploy
 deploy:  ## Deploy to GCP Cloud Run (prerequisite: gcloud auth login)
-	docker build -t gcr.io/${PROJECT_ID}/hello-world-api:latest .
+	docker buildx build --platform linux/amd64 -t gcr.io/${PROJECT_ID}/hello-world-api:latest .
 	docker push gcr.io/${PROJECT_ID}/hello-world-api:latest
 	gcloud run deploy hello-world-api \
 	--image gcr.io/${PROJECT_ID}/hello-world-api:latest \
