@@ -24,6 +24,24 @@ clean:  ## Clean up caches and build artifacts
 	@rm -f .coverage
 	@find . -type f -name '*.py[co]' -delete -or -type d -name __pycache__ -delete
 
+.PHONY: dev
+dev:
+	docker build -t hello-world-api .
+	docker run -p 8080:8080 hello-world-api
+
+PROJECT_ID=xomnia-training
+
+.PHONY: deploy
+deploy:  ## Deploy to GCP Cloud Run (prerequisite: gcloud auth login)
+	docker build -t gcr.io/${PROJECT_ID}/hello-world-api:latest .
+	docker push gcr.io/${PROJECT_ID}/hello-world-api:latest
+	gcloud run deploy hello-world-api \
+	--image gcr.io/${PROJECT_ID}/hello-world-api:latest \
+	--platform managed \
+	--region europe-west4 \
+	--cpu 1 \
+	--allow-unauthenticated
+
 .PHONY: help
 help:  ## Display this help screen
 	@echo -e "\033[1mAvailable commands:\033[0m"
