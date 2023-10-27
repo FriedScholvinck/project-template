@@ -1,10 +1,9 @@
 # Standard Python project CI setup
 
-There are many ways to set up continuous integration for your Python project. This is my personal flavour of doing things. Feel free to pick-and-choose the parts that you like.
-
-This README includes some justification and references for the choices made in this setup.
+This is a project template to setup python projects.
 
 ## Table of contents
+- [usage] (#usage)
 - [pre-commit](#pre-commit)
 - [pytest](#pytest)
 - [Makefile](#makefile)
@@ -12,9 +11,37 @@ This README includes some justification and references for the choices made in t
 - [GitHub Actions](#github-actions)
 
 
+## usage
+Clone this repository with a different folder name (one for your project specifically)
+
+```
+git clone https://github.com/FriedScholvinck/project-template.git folder_name
+```
+
+If not yet done, install pyenv, python and poetry (see POETRY.md for further explanation). Make sure to install the python version you want to use with pyenv.
+```
+poetry install
+```
+
+
+
+Initialize a new git repository in your git client and push the code. Remember to custimize your git configuration first. This information will be associated with your commits.
+```
+git config --local user.name "Your Name"
+git config --local user.email "your.email@example.com"
+```
+
+```
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin <remote_repository_url>
+git push -u origin main
+```
+
 ## pre-commit
 
-[pre-commit](https://pre-commit.com/) is an awesome framework which many Python projects use. It allows you to select 'hooks' for various formatters and linters you want to use.
+[pre-commit](https://pre-commit.com/) is a framework which many Python projects use. It allows you to select 'hooks' for various formatters and linters you want to use.
 
 Run `pre-commit install` after setting up your local environment to enable pre-commit to run all hooks whenever you do a git commit. The commit will be cancelled if not all hooks run successfully. To commit anyway, run with `--no-verify`.
 
@@ -28,7 +55,7 @@ The following hooks have been selected for this CI setup:
 
 ## pytest
 
-[pytest](https://docs.pytest.org/) is without question the best Python testing framework out there. Tests written in this framework are much more readable than when using Python's built-in `unittest` framework.
+[pytest](https://docs.pytest.org/) is a Python testing framework. Tests written in this framework are much more readable than when using Python's built-in `unittest` framework.
 
 pytest is extensible. I advise using [`pytest-mock`](https://pytest-mock.readthedocs.io/) for your mocking needs. [`pytest-spark`](https://github.com/malexer/pytest-spark) is useful when you're working with pyspark.
 
@@ -48,7 +75,7 @@ Simply run `make` to get an overview of available commands.
 
 ## Poetry
 
-[Poetry](https://python-poetry.org/) is an amazing, modern tool for developing Python packages. See my [Poetry guide](https://github.com/stinodego/poetry-guide) for pointers on using Poetry effectively.
+[Poetry](https://python-poetry.org/) is a modern tool for developing Python packages. 
 
 Note that the dependency specification for this repository contains two [dependency groups](https://python-poetry.org/docs/master/managing-dependencies/):
 

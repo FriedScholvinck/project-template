@@ -2,7 +2,7 @@
 name = "ProjectTemplate"
 version = "0.1.0"
 description = ""
-authors = ["Fried Schölvinck <fried.scholvinck@gmail.com"]
+authors = ["Fried Schölvinck <fried.scholvinck@gmail.com>"]
 repository = "https://github.com/FriedScholvinck/project-template"
 readme = "README.md"
 packages = [{ include = "mypackage", from = "src" }]
