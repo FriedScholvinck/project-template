@@ -21,9 +21,14 @@ git clone https://github.com/FriedScholvinck/project-template.git folder_name
 If not yet done, install pyenv, python and poetry (see POETRY.md for further explanation). Make sure to install the python version you want to use with pyenv.
 ```
 poetry install
+source .venv/bin/activate
+```
+Add requirements like this
+```
+poetry add {package-name}
 ```
 
-
+Add your code, add .env file, etc...
 
 Initialize a new git repository in your git client and push the code. Remember to custimize your git configuration first. This information will be associated with your commits.
 ```
