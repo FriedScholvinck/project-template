@@ -19,6 +19,9 @@ git clone https://github.com/FriedScholvinck/project-template.git folder_name
 ```
 
 If not yet done, install pyenv, python and poetry (see POETRY.md for further explanation). Make sure to install the python version you want to use with pyenv.
+
+Change the `project.toml`, especially the name, because it will influence the naming of your python environment.
+
 ```
 poetry install
 source .venv/bin/activate
